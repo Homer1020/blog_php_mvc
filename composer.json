@@ -1,0 +1,18 @@
+{
+    "name": "homer/citas_mvc",
+    "autoload": {
+        "psr-4": {
+            "Homer\\CitasMvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Homer1020",
+            "email": "61599010+Homer1020@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.6",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}

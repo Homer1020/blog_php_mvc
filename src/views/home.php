@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BLOG MVC</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link id="theme-link" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 
@@ -21,7 +21,8 @@
 
         </ul>
 
-        <a class="btn btn-outline-success" href="/login">Iniciar Sesion</a>
+        <a class="btn btn-outline-success me-2" href="/login">Iniciar Sesion</a>
+        <button id="toggle-theme" class="btn btn-secondary">Cambiar Tema</button>
       </div>
     </div>
   </nav>
@@ -39,7 +40,7 @@
         <?php if(!isset($_SESSION['userdata'])): ?>
           <p>
             <a href="/login" class="btn btn-primary my-2">Iniciar Sesión</a>
-            <a href="/registro" class="btn btn-secondary my-2">Registrarse</a>
+            <a href="/registro" class="btn btn-success my-2">Registrarse</a>
           </p>
         <?php else: ?>
           <p>
@@ -63,7 +64,7 @@
                 <p class="card-title h5 mb-3"><?= $post->title ?></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a href="/blog/<?= $post->slug ?>" class="btn btn-sm btn-outline-secondary">View</a>
+                    <a href="/blog/<?= $post->slug ?>" class="btn btn-sm btn-outline-warning">View</a>
                     <?php if(isset($_SESSION['userdata'])): ?>
                       <a href="/admin/publicaciones/editar/<?= $post->id ?>" class="btn btn-sm btn-outline-secondary">Edit</a>
                     <?php endif; ?>
@@ -96,4 +97,5 @@
   </footer>
 </body>
 
+<script src="/assets/js/front.js"></script>
 </html>

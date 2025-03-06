@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BLOG MVC | <?= $data['post']->title ?></title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link id="theme-link" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 
@@ -21,13 +21,14 @@
 
         </ul>
 
-        <a class="btn btn-outline-success" href="/login">Iniciar Sesion</a>
+        <a class="btn btn-outline-success me-2" href="/login">Iniciar Sesion</a>
+        <button id="toggle-theme" class="btn btn-secondary">Cambiar Tema</button>
       </div>
     </div>
   </nav>
 
   <div class="container mt-3">
-    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" style="background-image: url(/uploads/posts/<?= $data['post']->thumbnail ?>); background-position: center; background-size: cover;" alt="<?= $data['post']->title ?>">
       <div class="col-md-6 px-0">
         <h1 class="display-4 fst-italic"><?= $data['post']->title ?></h1>
       </div>
@@ -35,6 +36,8 @@
   </div>
 
   <div class="container">
+    <p class="text-muted small mb-1">Categoria: <?= $data['post']->category ?></p>
+    <p class="text-muted small">Fecha: <?= $data['post']->created_at ?></p>
     <p><?= $data['post']->content ?></p>
   </div>
 
@@ -47,5 +50,7 @@
     </div>
   </footer>
 </body>
+
+<script src="/assets/js/front.js"></script>
 
 </html>

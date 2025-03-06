@@ -58,7 +58,7 @@ class Post extends Database
 	}
 
 	public function findBySlug($slug) {
-		$query = $this->prepare('SELECT * FROM posts WHERE slug = :slug');
+		$query = $this->prepare('SELECT posts.*, categories.name as category FROM posts LEFT JOIN categories ON categories.id = posts.category_id WHERE slug = :slug');
 
 		$query->execute([
 			':slug' => $slug
